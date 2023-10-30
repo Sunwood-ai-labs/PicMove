@@ -1,0 +1,40 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>画像動かしアプリ</title>
+    <style>
+        #movable-image {
+            position: relative;
+            width: 100px;  /* 適切なサイズに調整 */
+            height: 100px; /* 適切なサイズに調整 */
+        }
+    </style>
+</head>
+<body>
+    <img id="movable-image" src="static/cat.png" alt="動かす画像">
+
+    <script>
+        document.addEventListener('keydown', (event) => {
+            const image = document.getElementById('movable-image');
+            const keyName = event.key;
+
+            switch (keyName) {
+                case 'ArrowUp':
+                    image.style.top = (image.offsetTop - 10) + 'px';
+                    break;
+                case 'ArrowDown':
+                    image.style.top = (image.offsetTop + 10) + 'px';
+                    break;
+                case 'ArrowLeft':
+                    image.style.left = (image.offsetLeft - 10) + 'px';
+                    break;
+                case 'ArrowRight':
+                    image.style.left = (image.offsetLeft + 10) + 'px';
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
